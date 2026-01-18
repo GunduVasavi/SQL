@@ -1,4 +1,3 @@
--- STEP 1: Create students table
 CREATE TABLE IF NOT EXISTS students (
     id SERIAL PRIMARY KEY,
     name TEXT NOT NULL,
@@ -7,13 +6,10 @@ CREATE TABLE IF NOT EXISTS students (
     course TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
-
--- Output:
+ Output:
 Success. No rows returned.
 
---------------------------------------------------
-
--- STEP 2: Insert student records
+STEP 2: Insert student records
 INSERT INTO students (name, email, age, course)
 VALUES
 ('Rahul Sharma', 'rahul.sharma@gmail.com', 22, 'Full Stack Development'),
@@ -23,64 +19,59 @@ VALUES
 ('Arjun Mehta', 'arjun.mehta@gmail.com', 21, 'Data Science'),
 ('Sneha Patel', 'sneha.patel@gmail.com', 23, 'Backend Development');
 
--- Output:
+ Output:
 INSERT 0 6
 
---------------------------------------------------
-
--- STEP 3: Fetch all students
+ STEP 3: Fetch all students
 SELECT * FROM students;
 
--- Output:
+ Output:
 id | name | email | age | course | created_at
 
---------------------------------------------------
 
--- Fetch students older than 20
+
+ Fetch students older than 20
 SELECT * FROM students WHERE age > 20;
 
---------------------------------------------------
 
--- Fetch only name and email
+ Fetch only name and email
 SELECT name, email FROM students;
 
---------------------------------------------------
 
--- Fetch students enrolled in Data Science
+
+Fetch students enrolled in Data Science
 SELECT * FROM students WHERE course = 'Data Science';
 
---------------------------------------------------
 
--- STEP 4: Update age of one student
+
+ STEP 4: Update age of one student
 UPDATE students
 SET age = 23
 WHERE email = 'rahul.sharma@gmail.com';
 
--- Output:
+ Output:
 UPDATE 1
 
---------------------------------------------------
 
--- Update course for Full Stack students
+ Update course for Full Stack students
 UPDATE students
 SET course = 'Advanced Full Stack Development'
 WHERE course = 'Full Stack Development';
 
--- Output:
+ Output:
 UPDATE 2
 
---------------------------------------------------
 
--- STEP 5: Delete one student using ID
+
+ STEP 5: Delete one student using ID
 DELETE FROM students WHERE id = 6;
 
--- Output:
+ Output:
 DELETE 1
 
---------------------------------------------------
 
--- Delete all students below age 20
+
+ Delete all students below age 20
 DELETE FROM students WHERE age < 20;
-
--- Output:
+ Output:
 DELETE n
