@@ -1,0 +1,102 @@
+TABLE USED: students
+
+Columns:
+id (SERIAL, PK)
+name (TEXT)
+email (TEXT)
+age (INTEGER)
+course (TEXT)
+created_at (TIMESTAMP)
+
+------------------------------------------------
+STEP 2: AGGREGATE QUERIES
+------------------------------------------------
+
+1) Count the total number of students
+------------------------------------
+SQL QUERY:
+SELECT COUNT(*) AS total_students
+FROM students;
+
+OUTPUT:
+-- Paste output from Supabase here
+
+
+2) Find the average age of students
+-----------------------------------
+SQL QUERY:
+SELECT AVG(age) AS average_age
+FROM students;
+
+OUTPUT:
+-- Paste output from Supabase here
+
+
+3) Find the minimum and maximum age
+-----------------------------------
+SQL QUERY:
+SELECT
+    MIN(age) AS minimum_age,
+    MAX(age) AS maximum_age
+FROM students;
+
+OUTPUT:
+-- Paste output from Supabase here
+
+
+4) Count how many students are enrolled in each course
+------------------------------------------------------
+SQL QUERY:
+SELECT course, COUNT(*) AS student_count
+FROM students
+GROUP BY course;
+
+OUTPUT:
+-- Paste output from Supabase here
+
+
+5) Count students whose age is greater than 20
+----------------------------------------------
+SQL QUERY:
+SELECT COUNT(*) AS students_above_20
+FROM students
+WHERE age > 20;
+
+OUTPUT:
+-- Paste output from Supabase here
+
+
+------------------------------------------------
+STEP 3: GROUPING & FILTERING
+------------------------------------------------
+
+6) Display course-wise student count
+------------------------------------
+SQL QUERY:
+SELECT course, COUNT(*) AS student_count
+FROM students
+GROUP BY course;
+
+OUTPUT:
+-- Paste output from Supabase here
+
+
+7) Display only courses where student count is greater than 1
+-------------------------------------------------------------
+SQL QUERY:
+SELECT course, COUNT(*) AS student_count
+FROM students
+GROUP BY course
+HAVING COUNT(*) > 1;
+
+OUTPUT:
+-- Paste output from Supabase here
+
+
+8) Display courses sorted by highest student count first
+--------------------------------------------------------
+SQL QUERY:
+SELECT course, COUNT(*) AS student_count
+FROM students
+GROUP BY course
+ORDER
